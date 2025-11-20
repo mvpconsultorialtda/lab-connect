@@ -1,11 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-/* Note: You will need to add the actual font files to src/assets/fonts */
-@font-face {
-    font-family: 'CocogoosePra Trial';
-    src: local('CocogoosePra Trial'), local('CocogoosePra-Trial');
-    font-weight: bold;
-    font-style: normal;
+@theme {
+    --color-brand-primary: #ffa552;
+    --color-brand-secondary: #de6623;
+    --color-brand-dark: #0d0d0d;
+    --color-brand-gray: #e6e9e9;
+    --color-brand-navy: #121424;
+
+    --font-display: "Montserrat", "sans-serif";
+    --font-sans: "Inter", "sans-serif";
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-dark);
+    color: var(--color-brand-gray);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
 }
