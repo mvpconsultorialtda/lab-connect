@@ -1,23 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Users, Briefcase, Calendar } from 'lucide-react';
+import logoCompleto from '../referencias/logo/logo_completo.png';
+import logoReduzido from '../referencias/logo/logo_reduzido.png';
 
 const LandingPage: React.FC = () => {
     return (
-        <div className="min-h-screen bg-brand-dark text-brand-gray font-sans selection:bg-brand-primary selection:text-brand-dark overflow-hidden">
+        <div className="min-h-screen bg-brand-dark text-brand-gray font-sans selection:bg-brand-primary selection:text-brand-dark overflow-x-hidden">
             {/* Navbar */}
             <nav className="fixed w-full z-50 backdrop-blur-md bg-brand-dark/80 border-b border-white/5">
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center">
-                            <span className="text-white font-display font-bold text-xl">L</span>
-                        </div>
-                        <span className="font-display font-bold text-xl tracking-tight text-white">Lab Connect</span>
+                        <img src={logoCompleto} alt="Lab Connect Logo" className="h-10 w-auto" />
                     </div>
                     <div className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-gray/80">
-                        <a href="#" className="hover:text-brand-primary transition-colors">Vagas</a>
-                        <a href="#" className="hover:text-brand-primary transition-colors">Mentoria</a>
-                        <a href="#" className="hover:text-brand-primary transition-colors">Eventos</a>
+                        <a href="#vagas" className="hover:text-brand-primary transition-colors">Vagas</a>
+                        <a href="#mentoria" className="hover:text-brand-primary transition-colors">Mentoria</a>
+                        <a href="#eventos" className="hover:text-brand-primary transition-colors">Eventos</a>
+                        <a href="#sobre" className="hover:text-brand-primary transition-colors">Sobre</a>
                     </div>
                     <div className="flex items-center gap-4">
                         <button className="text-sm font-medium hover:text-white transition-colors">Entrar</button>
@@ -53,8 +53,8 @@ const LandingPage: React.FC = () => {
                             </span>
                         </h1>
                         <p className="text-lg text-brand-gray/70 mb-8 max-w-xl leading-relaxed">
-                            A plataforma oficial de networking, vagas e mentorias para egressos e estudantes.
-                            Impulsione sua carreira com conexões reais.
+                            A plataforma oficial de networking, vagas e mentorias para egressos e estudantes da UNEB.
+                            Impulsione sua carreira com conexões reais e oportunidades exclusivas.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -69,13 +69,20 @@ const LandingPage: React.FC = () => {
 
                         <div className="mt-12 flex items-center gap-4 text-sm text-brand-gray/50">
                             <div className="flex -space-x-3">
-                                {[1, 2, 3, 4].map(i => (
-                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-brand-dark bg-brand-navy flex items-center justify-center text-xs text-white font-medium">
-                                        U{i}
-                                    </div>
-                                ))}
+                                <div className="w-10 h-10 rounded-full border-2 border-brand-dark bg-brand-navy flex items-center justify-center text-xs text-white font-medium overflow-hidden">
+                                    <img src="https://i.pravatar.cc/100?img=1" alt="User" className="w-full h-full object-cover" />
+                                </div>
+                                <div className="w-10 h-10 rounded-full border-2 border-brand-dark bg-brand-navy flex items-center justify-center text-xs text-white font-medium overflow-hidden">
+                                    <img src="https://i.pravatar.cc/100?img=5" alt="User" className="w-full h-full object-cover" />
+                                </div>
+                                <div className="w-10 h-10 rounded-full border-2 border-brand-dark bg-brand-navy flex items-center justify-center text-xs text-white font-medium overflow-hidden">
+                                    <img src="https://i.pravatar.cc/100?img=8" alt="User" className="w-full h-full object-cover" />
+                                </div>
+                                <div className="w-10 h-10 rounded-full border-2 border-brand-dark bg-brand-navy flex items-center justify-center text-xs text-white font-medium bg-brand-primary/20">
+                                    +500
+                                </div>
                             </div>
-                            <p>+500 designers já conectados</p>
+                            <p>Designers já conectados</p>
                         </div>
                     </motion.div>
 
@@ -90,8 +97,8 @@ const LandingPage: React.FC = () => {
                             {/* Mock UI Card */}
                             <div className="flex items-center justify-between mb-6">
                                 <div>
-                                    <h3 className="text-xl font-bold text-white">Vagas Recentes</h3>
-                                    <p className="text-sm text-white/50">Atualizado hoje</p>
+                                    <h3 className="text-xl font-bold text-white">Oportunidades em Destaque</h3>
+                                    <p className="text-sm text-white/50">Curadoria exclusiva</p>
                                 </div>
                                 <div className="p-2 bg-brand-primary/20 rounded-lg">
                                     <Briefcase className="w-6 h-6 text-brand-primary" />
@@ -99,16 +106,30 @@ const LandingPage: React.FC = () => {
                             </div>
 
                             <div className="space-y-4">
-                                {[1, 2, 3].map((item) => (
-                                    <div key={item} className="p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
-                                        <div className="flex justify-between items-start mb-2">
-                                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-primary to-brand-secondary opacity-80" />
-                                            <span className="text-xs font-medium px-2 py-1 rounded bg-brand-primary/20 text-brand-primary">Senior</span>
-                                        </div>
-                                        <h4 className="font-semibold text-white group-hover:text-brand-primary transition-colors">Product Designer</h4>
-                                        <p className="text-sm text-white/50">Remote • R$ 8k - 12k</p>
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <img src={logoReduzido} alt="Company Logo" className="w-10 h-10 rounded-lg opacity-80 object-contain bg-white/5 p-1" />
+                                        <span className="text-xs font-medium px-2 py-1 rounded bg-brand-primary/20 text-brand-primary">Pleno</span>
                                     </div>
-                                ))}
+                                    <h4 className="font-semibold text-white group-hover:text-brand-primary transition-colors">UX/UI Designer</h4>
+                                    <p className="text-sm text-white/50">Studio K • Híbrido • Salvador</p>
+                                </div>
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-500 font-bold">N</div>
+                                        <span className="text-xs font-medium px-2 py-1 rounded bg-blue-500/20 text-blue-400">Júnior</span>
+                                    </div>
+                                    <h4 className="font-semibold text-white group-hover:text-brand-primary transition-colors">Designer Gráfico</h4>
+                                    <p className="text-sm text-white/50">Nubank • Remoto</p>
+                                </div>
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors cursor-pointer group">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-500 font-bold">I</div>
+                                        <span className="text-xs font-medium px-2 py-1 rounded bg-purple-500/20 text-purple-400">Estágio</span>
+                                    </div>
+                                    <h4 className="font-semibold text-white group-hover:text-brand-primary transition-colors">Product Design Intern</h4>
+                                    <p className="text-sm text-white/50">Inter • Belo Horizonte</p>
+                                </div>
                             </div>
                         </div>
 
@@ -123,7 +144,7 @@ const LandingPage: React.FC = () => {
                                     <Users className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-xs font-bold opacity-80">Mentores</p>
+                                    <p className="text-xs font-bold opacity-80">Mentores Ativos</p>
                                     <p className="text-xl font-black">50+</p>
                                 </div>
                             </div>
@@ -139,7 +160,7 @@ const LandingPage: React.FC = () => {
                                     <Calendar className="w-6 h-6 text-brand-secondary" />
                                 </div>
                                 <div>
-                                    <p className="text-xs font-bold opacity-80">Eventos</p>
+                                    <p className="text-xs font-bold opacity-80">Eventos este mês</p>
                                     <p className="text-xl font-black">12</p>
                                 </div>
                             </div>
@@ -147,6 +168,59 @@ const LandingPage: React.FC = () => {
                     </motion.div>
                 </div>
             </main>
+
+            {/* About Section */}
+            <section id="sobre" className="py-20 bg-brand-navy/30 border-y border-white/5">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Por que o Lab Connect?</h2>
+                        <p className="text-brand-gray/60 max-w-2xl mx-auto">
+                            Nascemos dentro da UNEB para fortalecer a comunidade de design. Somos a ponte entre o ambiente acadêmico e o mercado de trabalho.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-primary/50 transition-colors">
+                            <div className="w-12 h-12 bg-brand-primary/20 rounded-xl flex items-center justify-center mb-4 text-brand-primary">
+                                <Users className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-2">Networking Real</h3>
+                            <p className="text-brand-gray/60">Conecte-se com veteranos que já estão no mercado e expanda sua rede de contatos profissionais.</p>
+                        </div>
+                        <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-primary/50 transition-colors">
+                            <div className="w-12 h-12 bg-brand-secondary/20 rounded-xl flex items-center justify-center mb-4 text-brand-secondary">
+                                <Briefcase className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-2">Vagas Exclusivas</h3>
+                            <p className="text-brand-gray/60">Acesso a oportunidades curadas especificamente para o perfil dos designers formados na UNEB.</p>
+                        </div>
+                        <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-brand-primary/50 transition-colors">
+                            <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4 text-purple-500">
+                                <Calendar className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-2">Mentoria e Eventos</h3>
+                            <p className="text-brand-gray/60">Participe de workshops, palestras e programas de mentoria para acelerar seu desenvolvimento.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="py-12 border-t border-white/5 bg-brand-dark">
+                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div className="flex items-center gap-2">
+                        <img src={logoCompleto} alt="Lab Connect Logo" className="h-8 w-auto opacity-80 grayscale hover:grayscale-0 transition-all" />
+                    </div>
+                    <div className="text-brand-gray/40 text-sm">
+                        © 2025 Lab Connect. Todos os direitos reservados.
+                    </div>
+                    <div className="flex gap-6 text-brand-gray/40">
+                        <a href="#" className="hover:text-brand-primary transition-colors">Termos</a>
+                        <a href="#" className="hover:text-brand-primary transition-colors">Privacidade</a>
+                        <a href="#" className="hover:text-brand-primary transition-colors">Contato</a>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };
