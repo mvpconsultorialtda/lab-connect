@@ -1,32 +1,14 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Briefcase, Calendar } from 'lucide-react';
-import logoCompleto from '../referencias/logo/logo_completo.png';
+import Navbar from '../components/Navbar';
 import logoReduzido from '../referencias/logo/logo_reduzido.png';
+import logoCompleto from '../referencias/logo/logo_completo.png';
 
 const LandingPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-brand-dark text-brand-gray font-sans selection:bg-brand-primary selection:text-brand-dark overflow-x-hidden">
-            {/* Navbar */}
-            <nav className="fixed w-full z-50 backdrop-blur-md bg-brand-dark/80 border-b border-white/5">
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <img src={logoCompleto} alt="Lab Connect Logo" className="h-10 w-auto" />
-                    </div>
-                    <div className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-gray/80">
-                        <a href="#vagas" className="hover:text-brand-primary transition-colors">Vagas</a>
-                        <a href="#mentoria" className="hover:text-brand-primary transition-colors">Mentoria</a>
-                        <a href="#eventos" className="hover:text-brand-primary transition-colors">Eventos</a>
-                        <a href="#sobre" className="hover:text-brand-primary transition-colors">Sobre</a>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <button className="text-sm font-medium hover:text-white transition-colors">Entrar</button>
-                        <button className="bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-5 py-2.5 rounded-full text-sm font-bold hover:brightness-110 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(222,102,35,0.3)]">
-                            Criar Conta
-                        </button>
-                    </div>
-                </div>
-            </nav>
+            <Navbar />
 
             {/* Hero Section */}
             <main className="relative pt-32 pb-20 px-6">
@@ -37,11 +19,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
+                    <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-brand-primary text-xs font-semibold mb-6">
                             <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
                             Exclusivo para Design UNEB
@@ -58,13 +36,13 @@ const LandingPage: React.FC = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="group flex items-center justify-center gap-2 bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-[0_0_30px_rgba(222,102,35,0.4)]">
+                            <Link to="/cadastro" className="group flex items-center justify-center gap-2 bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-[0_0_30px_rgba(222,102,35,0.4)]">
                                 Começar Agora
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-lg border border-white/10 hover:bg-white/5 transition-all text-white">
+                            </Link>
+                            <Link to="/sobre" className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-lg border border-white/10 hover:bg-white/5 transition-all text-white">
                                 Saiba Mais
-                            </button>
+                            </Link>
                         </div>
 
                         <div className="mt-12 flex items-center gap-4 text-sm text-brand-gray/50">
@@ -84,15 +62,10 @@ const LandingPage: React.FC = () => {
                             </div>
                             <p>Designers já conectados</p>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Hero Visual / Mockup */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative"
-                    >
+                    <div className="relative">
                         <div className="relative z-10 bg-brand-navy/50 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
                             {/* Mock UI Card */}
                             <div className="flex items-center justify-between mb-6">
@@ -134,11 +107,7 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         {/* Floating Elements */}
-                        <motion.div
-                            animate={{ y: [0, -20, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-10 -right-10 bg-brand-primary text-brand-dark p-4 rounded-2xl shadow-xl z-20"
-                        >
+                        <div className="absolute -top-10 -right-10 bg-brand-primary text-brand-dark p-4 rounded-2xl shadow-xl z-20 animate-bounce duration-[3000ms]">
                             <div className="flex items-center gap-3">
                                 <div className="p-2 bg-black/10 rounded-lg">
                                     <Users className="w-6 h-6" />
@@ -148,13 +117,9 @@ const LandingPage: React.FC = () => {
                                     <p className="text-xl font-black">50+</p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            animate={{ y: [0, 20, 0] }}
-                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            className="absolute -bottom-10 -left-10 bg-brand-gray text-brand-dark p-4 rounded-2xl shadow-xl z-20"
-                        >
+                        <div className="absolute -bottom-10 -left-10 bg-brand-gray text-brand-dark p-4 rounded-2xl shadow-xl z-20 animate-bounce duration-[4000ms]">
                             <div className="flex items-center gap-3">
                                 <div className="p-2 bg-brand-secondary/10 rounded-lg">
                                     <Calendar className="w-6 h-6 text-brand-secondary" />
@@ -164,13 +129,13 @@ const LandingPage: React.FC = () => {
                                     <p className="text-xl font-black">12</p>
                                 </div>
                             </div>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
             </main>
 
             {/* About Section */}
-            <section id="sobre" className="py-20 bg-brand-navy/30 border-y border-white/5">
+            <section className="py-20 bg-brand-navy/30 border-y border-white/5">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Por que o Lab Connect?</h2>
@@ -215,9 +180,9 @@ const LandingPage: React.FC = () => {
                         © 2025 Lab Connect. Todos os direitos reservados.
                     </div>
                     <div className="flex gap-6 text-brand-gray/40">
-                        <a href="#" className="hover:text-brand-primary transition-colors">Termos</a>
-                        <a href="#" className="hover:text-brand-primary transition-colors">Privacidade</a>
-                        <a href="#" className="hover:text-brand-primary transition-colors">Contato</a>
+                        <Link to="/sobre" className="hover:text-brand-primary transition-colors">Termos</Link>
+                        <Link to="/sobre" className="hover:text-brand-primary transition-colors">Privacidade</Link>
+                        <Link to="/sobre" className="hover:text-brand-primary transition-colors">Contato</Link>
                     </div>
                 </div>
             </footer>
