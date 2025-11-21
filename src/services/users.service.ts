@@ -26,6 +26,6 @@ export const UsersService = {
     // Promote to Admin (Dev Tool)
     promoteToAdmin: async (uid: string) => {
         const ref = doc(db, COLLECTION, uid);
-        return updateDoc(ref, { role: 'admin' });
+        return setDoc(ref, { role: 'admin' }, { merge: true });
     }
 };
