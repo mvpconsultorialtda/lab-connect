@@ -7,6 +7,7 @@ import EventosPage from './pages/EventosPage';
 import SobrePage from './pages/SobrePage';
 import LoginPage from './pages/LoginPage';
 import CadastroPage from './pages/CadastroPage';
+import { AdminSetup } from './pages/AdminSetup';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/sobre" element={<SobrePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/cadastro" element={<CadastroPage />} />
+          <Route path="/admin-setup" element={<AdminSetup />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
