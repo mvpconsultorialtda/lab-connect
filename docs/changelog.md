@@ -1,6 +1,28 @@
-# Changelog - Visual Updates & Fixes
+# Changelog
 
-## 2025-11-20 - Visual Redesign & Fixes
+## [Unreleased] - Fase 2: Autenticação e Onboarding
+### Adicionado
+- **Autenticação Firebase:**
+  - Configuração do projeto Firebase e variáveis de ambiente (`.env`).
+  - Serviço de autenticação (`src/services/firebase.ts`).
+  - Contexto Global de Autenticação (`AuthContext`) para gerenciar estado do usuário.
+- **Páginas:**
+  - `LoginPage`: Formulário de login com validação e integração real.
+  - `CadastroPage`: Formulário de registro com validação de senha e criação de perfil.
+- **Componentes UI:**
+  - `Input`: Componente de entrada reutilizável com suporte a labels e mensagens de erro.
+  - `Button`: Componente de botão com variantes e estado de carregamento.
+- **Testes e Qualidade:**
+  - Configuração do `Vitest` e `React Testing Library`.
+  - Testes automatizados para fluxo de autenticação (`src/__tests__/auth.test.tsx`).
+  - Testes de roteamento (`src/App.test.tsx`).
+- **Infraestrutura:**
+  - `firebase.json`: Configuração de rewrite para SPA no Firebase Hosting.
+  - `vercel.json`: Configuração de rewrite para SPA na Vercel.
+  - Script de `preview` atualizado para usar `serve` e evitar erros 404 locais.
+  - Documentação de setup manual do Firebase (`docs/firebase-setup.md`).
+
+## [2025-11-20] - Ajustes Visuais e Landing Page
 
 ### 1. Architecture Redesign
 - **Multi-page Routing**: Transitioned from a single-page application to a multi-page structure using `react-router-dom`.
