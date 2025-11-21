@@ -1,6 +1,5 @@
 import {
     doc,
-    updateDoc,
     getDoc,
     setDoc
 } from 'firebase/firestore';

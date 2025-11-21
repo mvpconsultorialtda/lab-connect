@@ -2,11 +2,12 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { JobsService } from '../services/jobs.service';
 import { MentorsService } from '../services/mentors.service';
 import { EventsService } from '../services/events.service';
-import { addDoc, getDocs } from 'firebase/firestore';
+import { addDoc, getDocs, setDoc, doc } from 'firebase/firestore';
 
 // Types for mocks
 type MockAddDoc = ReturnType<typeof vi.fn>;
 type MockGetDocs = ReturnType<typeof vi.fn>;
+type MockSetDoc = ReturnType<typeof vi.fn>;
 
 describe('Firestore Services', () => {
     beforeEach(() => {
@@ -81,6 +82,24 @@ describe('Firestore Services', () => {
 
             await EventsService.create(eventData);
             expect(addDoc).toHaveBeenCalled();
+        });
+    });
+
+    describe('UsersService', () => {
+        it('should promote user to admin using setDoc with merge', async () => {
+            const { UsersService } = await import('../services/users.service');
+
+            // Mock doc to return a dummy reference
+            (doc as any).mockReturnValue({ id: 'mock-ref' });
+            (setDoc as MockSetDoc).mockResolvedValueOnce(undefined);
+
+            await UsersService.promoteToAdmin('user-123');
+
+            expect(setDoc).toHaveBeenCalledWith(
+                { id: 'mock-ref' },
+                { role: 'admin' },
+                { merge: true }
+            );
         });
     });
 });
