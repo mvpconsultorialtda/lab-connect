@@ -8,4 +8,10 @@ describe('App', () => {
     expect(screen.getByText(/Conectando o/i)).toBeInTheDocument();
     expect(screen.getByText(/Futuro do Design/i)).toBeInTheDocument();
   });
+
+  it('renders vagas page when navigating to /vagas', () => {
+    window.history.pushState({}, 'Vagas', '/vagas');
+    render(<App />);
+    expect(screen.getByRole('heading', { name: /vagas/i })).toBeInTheDocument();
+  });
 });
